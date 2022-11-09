@@ -16,7 +16,7 @@ window.onload = () => {
   fetch(request)
     .then(res => res.json())
     .then(data => {
-      ({p, q, g, pk, ballots} = data);
+      ({ p, q, g, pk, ballots } = data);
       board.insertAdjacentHTML('beforeend', `<li>Public Key = ${pk}</li>`);
       ballots.map(ballot => board.insertAdjacentHTML('beforeend', `<li>${ballot}</li>`));
     })
@@ -60,8 +60,8 @@ document.getElementById('tally').addEventListener('click', e => {
     .then(m => {
       let yes = Number(m);
       let no = ballots.length - yes;
-      console.log('Yes', yes);
-      console.log('No', no);
+      prompt('Yes', yes);
+      prompt('No', no);
     })
     .catch(error => {
       console.error(error);
