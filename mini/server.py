@@ -1,5 +1,3 @@
-""" Created by Henrikh Kantuni on 12/13/17 """
-
 from flask import Flask, request, render_template
 import crypto
 import json

@@ -1,5 +1,3 @@
-""" Created by Henrikh Kantuni on 12/13/17 """
-
 from random import randint
 
 p = 283

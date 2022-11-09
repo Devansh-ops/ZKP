@@ -1,8 +1,3 @@
-/**
- * Created by Henrikh Kantuni on 12/14/17.
- */
-
-
 function random(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }

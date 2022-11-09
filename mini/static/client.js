@@ -1,8 +1,3 @@
-/**
- * Created by Henrikh Kantuni on 12/13/17.
- */
-
-
 let g, p, q, pk;
 let board, ballots;
 
