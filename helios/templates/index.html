@@ -13,13 +13,13 @@
     <a href="#" class="LOGO"><img src="{{ url_for('static', filename='LOGO5.png') }}" width=50 height=50
         class="complogo"></a>
     <nav class="navbar">
-      <a style="--i:0;" href="#">Voting</a>
-      <a style="--i:1;" href="">Tally</a>
+      <a style="--i:0;" id="votingPage" href="#">Voting</a>
+      <a style="--i:1;" id="tally" href="#">Tally</a>
     </nav>
   </header>
   <br><br>
   <h1 style="margin-top:100px ;"></h1>
-  <div>
+  <div id="main_div" style="display: block;">
     <center>
       <h2>Do you think ZKP is the Future?</h2>
     </center>
@@ -32,9 +32,10 @@
       <button type="button" id="no" value="0" style="background-color: rgb(223, 70, 28) ;">No</button>
     </form>
   </div>
-  <h3>Bulletin Board</h3>
-  <ul id="board"></ul>
-  <button type="button" id="tally">Tally</button>
+  <div id="bulletin" style="display: none;">
+    <h3>Bulletin Board</h3>
+    <ul id="board"></ul>
+  </div>
 
   <script src="/static/helpers.js"></script>
   <script src="/static/client.js"></script>
