@@ -25,11 +25,11 @@ window.onload = () => {
     });
 };
 
-document.getElementById('send').addEventListener('click', e => {
+document.getElementById('yes').addEventListener('click', e => {
   e.preventDefault();
 
   let credentials = document.getElementById('credentials').value;
-  let vote = parseInt(document.getElementById('vote').value, 10);
+  let vote = 1;
   let [a, b, proof] = encrypt(pk, vote);
   let cipher = [a, b];
 
@@ -53,6 +53,36 @@ document.getElementById('send').addEventListener('click', e => {
       console.error(error);
     });
 });
+
+document.getElementById('no').addEventListener('click', e => {
+  e.preventDefault();
+
+  let credentials = document.getElementById('credentials').value;
+  let vote = 0;
+  let [a, b, proof] = encrypt(pk, vote);
+  let cipher = [a, b];
+
+  let request = new Request('/ballot', {
+    method: 'POST',
+    body: JSON.stringify({credentials, cipher, proof})
+  });
+
+  fetch(request)
+    .then(res => res.text())
+    .then(res => {
+      if (res === 'Access') {
+        let ballot = [credentials, a, b, proof].join(',');
+        ballots.push(ballot);
+        board.insertAdjacentHTML('beforeend', `<li>${ballot}</li>`);
+      } else {
+        alert("The vote is not valid");
+      }
+    })
+    .catch(error => {
+      console.error(error);
+    });
+});
+
 
 document.getElementById('tally').addEventListener('click', e => {
   e.preventDefault();
