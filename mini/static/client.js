@@ -16,7 +16,7 @@ window.onload = () => {
   fetch(request)
     .then(res => res.json())
     .then(data => {
-      ({p, q, g, pk, ballots} = data);
+      ({ p, q, g, pk, ballots } = data);
       board.insertAdjacentHTML('beforeend', `<li>Public Key = ${pk}</li>`);
       ballots.map(ballot => board.insertAdjacentHTML('beforeend', `<li>${ballot}</li>`));
     })
