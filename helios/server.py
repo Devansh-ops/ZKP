@@ -13,6 +13,7 @@ def index():
     return render_template('index.html')
 
 
+
 @app.route('/setup', methods=['POST'])
 def setup():
     ballots = []

@@ -99,12 +99,21 @@ document.getElementById('votingPage').addEventListener('click', e => {
   e.preventDefault();
   document.getElementById('main_div').style.display = "block";
   document.getElementById('bulletin').style.display = "none";
+  document.getElementById('aboutUS').style.display = "none";
+});
+
+document.getElementById('about').addEventListener('click', e => {
+  e.preventDefault();
+  document.getElementById('main_div').style.display = "none";
+  document.getElementById('bulletin').style.display = "none";
+  document.getElementById('aboutUS').style.display = "block";
 });
 
 document.getElementById('tally').addEventListener('click', e => {
   e.preventDefault();
   document.getElementById('main_div').style.display = "none";
   document.getElementById('bulletin').style.display = "block";
+  document.getElementById('aboutUS').style.display = "none";
   let request = new Request('/tally', {
     method: 'POST'
   });
