@@ -38,11 +38,17 @@ def ballot():
     credentials = data['credentials']
     cipher = data['cipher']
     proof = data['proof']
+    
+    with open('ballots.csv', 'r') as file:
+        for line in file:
+            cred = line.split(",")[0]
+            if cred == credentials:
+                return 'Denied', 200
 
     if crypto.verify_vote(pk, cipher, proof):
         with open('ballots.csv', 'a') as file:
             cipher = [str(s) for s in cipher]
-            proof = [str(s) for s in proof]
+            proof = [str(s) for s in proof]            
             line = '{0},{1},{2}\n'.format(credentials, ','.join(cipher), ','.join(proof))
             file.write(line)
         return 'Access', 200

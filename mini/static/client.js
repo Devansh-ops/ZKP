@@ -60,8 +60,8 @@ document.getElementById('tally').addEventListener('click', e => {
     .then(m => {
       let yes = Number(m);
       let no = ballots.length - yes;
-      console.log('Yes', yes);
-      console.log('No', no);
+      prompt('Yes', yes);
+      prompt('No', no);
     })
     .catch(error => {
       console.error(error);
