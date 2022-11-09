@@ -7,6 +7,9 @@ g = 60
 
 def generate_keys():
     sk = randint(0, q - 1)
+    print()
+    print("THE SECRET KEY IS:", sk)
+    print()
     pk = pow(g, sk, p)
     return pk, sk
 
